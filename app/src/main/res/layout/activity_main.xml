@@ -1,19 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="yjbo.yy.ynewsrecycle.MainActivity">
+    android:background="@color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/module"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/text_40"
+        android:background="@color/text_color_13"></RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_55"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/home_bj"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <!-- 深蓝 #C85D6 -->
+
+        <LinearLayout
+            android:id="@+id/home_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/home_image"
+                android:layout_width="@dimen/text_16"
+                android:layout_height="@dimen/text_16"
+                android:background="@drawable/homepage_selector"
+                android:focusable="true" />
+            <!--  android:background="@drawable/rfid"  -->
+            <TextView
+                android:id="@+id/home_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_2"
+                android:text="首页"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_11" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bag_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/bag_image"
+                android:layout_width="@dimen/text_16"
+                android:layout_height="@dimen/text_16"
+                android:background="@drawable/model_select" />
+            <!-- android:background="@drawable/tz" -->
+            <TextView
+                android:id="@+id/bag_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_2"
+                android:text="书包"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_11" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hui_layout"
+            android:layout_width="@dimen/text_36"
+            android:layout_height="@dimen/text_36"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:translationY="-10dp">
+
+            <ImageView
+                android:id="@+id/hui_image"
+                android:layout_width="@dimen/text_36"
+                android:layout_height="@dimen/text_36"
+                android:background="@drawable/navigation_select" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/biaogan_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/biaogan_image"
+                android:layout_width="@dimen/text_16"
+                android:layout_height="@dimen/text_16"
+                android:background="@drawable/apply_select" />
+            <!-- android:background="@drawable/erweima"  -->
+            <TextView
+                android:id="@+id/biaogan_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_2"
+                android:text="标杆"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_11" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/my_image"
+                android:layout_width="@dimen/text_16"
+                android:layout_height="@dimen/text_16"
+                android:background="@drawable/my_select" />
+            <!-- android:background="@drawable/more"  -->
+            <TextView
+                android:id="@+id/my_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_2"
+                android:text="我的"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_11" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
