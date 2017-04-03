@@ -84,17 +84,6 @@ public class homeFragment extends BackHandledFragment {
 //        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
     }
 
-    //添加数据
-//    protected void initData() {
-//        Datas = new ArrayList<>();
-//        for (int i = 1; i <= 30; i++) {
-//            newsClass item = new newsClass(R.mipmap.ic_launcher_round, " get 新技能" + i, "拣到漂亮妹子 " + i + " 枚，在大街上");
-//            Datas.add(item);
-//        }
-//        mAdapterDemo = new RecyclerAdapterDemo(this, Datas);
-//        mRecyclerView.setAdapter(mAdapterDemo);
-//    }
-
     private void initData() {
         new Thread(runnable).start();
     }
