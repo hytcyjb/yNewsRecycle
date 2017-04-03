@@ -5,9 +5,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,26 +31,25 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import yjbo.yy.ynewsrecycle.R;
 import yjbo.yy.ynewsrecycle.entity.newsClass;
-import yjbo.yy.ynewsrecycle.home.NewHomepagerAdapter;
-import yjbo.yy.ynewsrecycle.mainutil.PSFirst;
+import yjbo.yy.ynewsrecycle.home.HomeRecyclerAdapter;
+import yjbo.yy.ynewsrecycle.mainutil.CommonUtil;
 import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
 
 /**
- * 首页的fragment
+ * 首页的fragment的子布局
  *
  * @author yjbo
- * @time 2017/4/3 16:22
+ * @time 2017/4/3 23:54
  */
-public class homeFragment extends BackHandledFragment {
+public class homeItemFragment extends BackHandledFragment {
 
-    @Bind(R.id.home_tabLayout)
-    PSFirst home_tabLayout;
-    @Bind(R.id.home_viewpager)
-    ViewPager viewPager;
+
+    @Bind(R.id.swipe_target_onekind)
+    RecyclerView mRecyclerView;
     private View view = null;
     private Context mContext;
-    private List<Fragment> mNewsFragmentList = new ArrayList<>();
-    private List<String> nodeIdList = new ArrayList<>();
+    private HomeRecyclerAdapter mAdapterDemo;
+    private String pageNo = "----0";
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -59,19 +60,26 @@ public class homeFragment extends BackHandledFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(R.layout.fragment_home, container, false);
+            view = inflater.inflate(R.layout.fragment_home_item, container, false);
             ButterKnife.bind(this, view);
         }
 
         ButterKnife.bind(this, view);
         Bundle arguments = getArguments();
-        String state = arguments.getString("state");
+        pageNo = "----"+arguments.getString("node_id");
+        CommonUtil.toast(mContext, "数据请求成功==="+pageNo, Gravity.CENTER | Gravity.CENTER_HORIZONTAL);
         initView();
         initData();
         return view;
     }
 
     protected void initView() {
+        //添加分割线
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+        //添加布局管理器--列表
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+//        //添加布局管理器--网格
+//        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
     }
 
     private void initData() {
@@ -87,8 +95,8 @@ public class homeFragment extends BackHandledFragment {
                 Elements paragraphs = doc.select("p");
                 for (Element p : paragraphs) {
                     String ptext = p.text();
-                    if (ptext.contains("yjbointertitle")) {
-                        String replaceStr = ptext.replace("yjbointertitle", "");
+                    if (ptext.contains("yjbointerpage1")) {
+                        String replaceStr = ptext.replace("yjbointerpage1", "");
                         System.out.println("返回值：" + replaceStr);
                         Message msg = new Message();
                         msg.obj = replaceStr;
@@ -159,14 +167,14 @@ public class homeFragment extends BackHandledFragment {
                         String obj2 = obj.replaceAll("“", "\"")
                                 .replaceAll("”", "\"")
                                 .replaceAll(" ", "");
-                        System.out.println("-obj--" + obj);
-                        System.out.println("-obj2--" + obj2);
+                        System.out.println("-obj--"+obj);
+                        System.out.println("-obj2--"+obj2);
                         jsonObject = new JSONObject(obj2);
                         if ("success".equals(jsonObject.optString("result"))) {
                             JSONArray jsonArray = jsonObject.optJSONArray("list");
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObj = jsonArray.optJSONObject(i);
-                                newsClass item = new newsClass(jsonObj.optString("title"), jsonObj.optString("abs_title"), jsonObj.optString("image"));
+                                newsClass item = new newsClass(jsonObj.optString("title")+pageNo, jsonObj.optString("abs_title"), jsonObj.optString("image"));
                                 datas.add(item);
                             }
                         }
@@ -174,10 +182,8 @@ public class homeFragment extends BackHandledFragment {
                         e.printStackTrace();
                     }
                     if (datas.size() > 0) {
-//                        mAdapterDemo = new RecyclerAdapterDemo(mContext, datas);
-//                        mRecyclerView.setAdapter(mAdapterDemo);
-                        dealnative(datas);
-
+                        mAdapterDemo = new HomeRecyclerAdapter(mContext, datas);
+                        mRecyclerView.setAdapter(mAdapterDemo);
                     } else {
                     }
                     break;
@@ -186,36 +192,9 @@ public class homeFragment extends BackHandledFragment {
         }
     });
 
-    private void dealnative(List<newsClass> datas) {
-        if (datas.size() > 0) {
-            for (int i = 0; i < datas.size(); i++) {
-                newsClass newsClass = datas.get(i);
-                String nodeId = newsClass.getTitle();
-                homeItemFragment newsListFragment = createListFragments(nodeId, i + "");
-                mNewsFragmentList.add(newsListFragment);
-                nodeIdList.add(nodeId);
-            }
-            viewPager.setAdapter(new NewHomepagerAdapter(getActivity().getSupportFragmentManager(),
-                     nodeIdList, mNewsFragmentList));
-            //设置tabayout和viewpager相关联
-            home_tabLayout.setViewPager(viewPager);
-            viewPager.setCurrentItem(0, false);
-        } else {
-        }
-//        }
-    }
-    public homeItemFragment createListFragments(String mNodeId, String mPosition) {
-        homeItemFragment homeItemFrag = new homeItemFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("node_id", mNodeId);
-        bundle.putString("position", mPosition);
-        homeItemFrag.setArguments(bundle);
-        return homeItemFrag;
-    }
     public void againRequestData(int state) {
     }
 
     public void showRedPoint(int visible) {
     }
-
 }

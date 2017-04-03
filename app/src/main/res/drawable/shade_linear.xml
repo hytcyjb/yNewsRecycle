@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33dfdfdf" />
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <solid android:color="#33fdfdfd" />
+            <!-- <corners android:radius="3dp" />-->
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33efefef" />
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33efefef" />
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33efefef" />
+            <!-- <corners android:radius="3dp" />-->
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33cfcfcf" />
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33bfbfbf" />
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33afafaf" />
+            <padding
+                android:left="1px" />
+        </shape>
+    </item>
+    <!-- content -->
+    <item android:left="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <!-- <corners android:radius="5dp" />-->
+        </shape>
+    </item>
+
+</layer-list>

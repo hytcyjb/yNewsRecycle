@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
      **/
     private int resultState = 0;
 
+
+
     /**
      * 监听是否有网的广播
      *

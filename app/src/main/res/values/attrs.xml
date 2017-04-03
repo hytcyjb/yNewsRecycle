@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--横向滑动-->
+    <declare-styleable name="PSFirst">
+        <attr name="pstsIndicatorColor2" format="color" /><!--标题下面的下划线颜色-->
+        <attr name="pstsIndicatorHeight2" format="dimension" />
+        <attr name="pstsUnderlineColor2" format="color" />
+        <attr name="pstsUnderlineHeight2" format="dimension" />
+        <attr name="pstsDividerColor2" format="color" />
+        <attr name="pstsDividerWidth2" format="dimension" />
+        <attr name="pstsDividerPadding2" format="dimension" />
+        <attr name="pstsScrollOffset2" format="dimension" />
+        <attr name="pstsShouldExpand2" format="boolean" /><!--标题是否填充满横向布局-->
+        <attr name="pstsPaddingMiddle2" format="boolean" />
+        <attr name="pstsTabPaddingLeftRight2" format="dimension" />
+        <attr name="pstsTabBackground2" format="reference" />
+        <attr name="pstsTabTextSize2" format="dimension" />
+        <attr name="pstsTabTextColor2" format="reference" /><!--标题的颜色-->
+        <attr name="pstsTabTextStyle2" format="reference">
+            <flag name="normal" value="0x0" />
+            <flag name="bold" value="0x1" />
+            <flag name="italic" value="0x2" />
+        </attr>
+        <attr name="pstsTabTextAllCaps2" format="boolean" />
+        <attr name="pstsTabTextAlpha2" format="integer" />
+        <attr name="pstsTabTextFontFamily2" format="string" />
+    </declare-styleable>
+
+</resources>
