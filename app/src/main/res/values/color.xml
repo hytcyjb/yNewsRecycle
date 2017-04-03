@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    
     <color name="red">#ff0000</color>
     <color name="red_dark">#ff0033</color>
     <color name="blue">#afb4db</color>
@@ -24,7 +27,7 @@
     <color name="yahei">#333333</color>
     <color name="color_hei_8">#00000000</color>
     <color name="navigation_bg">#f6f6f6</color>
-    <color name="main_title">@color/primary</color>
+    <color name="main_title">@color/colorPrimary</color>
     <color name="btn_unable_color">#7FB8F1</color>
     <color name="activate_title">#303537</color>
     <color name="textview_pressd">#7fb8f1</color> 
@@ -36,7 +39,7 @@
        
     <color name="item_bg">#eeeeee</color>
     <color name="text_tint">#ffcccccc</color>
-    <color name="kp_title_blue">@color/primary</color>
+    <color name="kp_title_blue">@color/colorPrimary</color>
     <color name="kp_summary_hei">#444444</color>
     <color name="common_title_text">#f6f6f6</color>
     <color name="user_center">#e6e6e6</color>
@@ -201,7 +204,7 @@
     <color name="new_homepage_not_focused">#9A9A9A</color>
     <color name="et_divider_not_focused">#FF6D6D6D</color>
     <color name="et_divider_disable">#FFC1C1C1</color>
-    <color name="et_divider_focused">@color/primary</color>
+    <color name="et_divider_focused">@color/colorPrimary</color>
     <color name="card_item_pressed_color">#fafafa</color>
     <color name="card_item_default_color">#ffffff</color>
     <!--荣誉界面消息公告各种类别的颜色-->
