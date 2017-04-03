@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
     ImageView huiImage;
     mainApplication bagApplication;
     private FragmentManager fragmentManager;
-    private newHomeFragment homePageFragment;
-    private newHomeFragment newModelFragment;
-    private newHomeFragment navigationFragment;
-    private newHomeFragment applyFragment;
-    private newHomeFragment myFragment;
+    private homeFragment homePageFragment;
+    private otherFragment newModelFragment;
+    private otherFragment navigationFragment;
+    private otherFragment applyFragment;
+    private otherFragment myFragment;
     private int selectCheckedId = 0;
     private LocalBroadcastManager broadcastManager;
     private RefreshListReceiver receiver;
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         hind(transaction);
         hideBj(checkedId);
         switch (checkedId) {
-            //新主页
+            //0主页
             case 0:
                 if (homePageFragment != null && homePageFragment.isAdded()) {
                     transaction.show(homePageFragment);
@@ -164,63 +164,63 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                         isClickHome = true;
                     }
                 } else {
-                    homePageFragment = new newHomeFragment();
+                    homePageFragment = new homeFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("state","0");
                     homePageFragment.setArguments(bundle);
                     transaction.add(R.id.module, homePageFragment);
                 }
                 break;
-            //书包页面
+            //1页面
             case 1:
                 if (newModelFragment != null && newModelFragment.isAdded()) {
                     transaction.show(newModelFragment);
                     newModelFragment.againRequestData(state);
                 } else {
-                    newModelFragment = new newHomeFragment();
+                    newModelFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("state","1");
+                    bundle.putString("content","1");
                     newModelFragment.setArguments(bundle);
                     transaction.add(R.id.module, newModelFragment);
                 }
                 break;
-            //汇页面
+            //2页面
             case 2:
                 if (navigationFragment != null && navigationFragment.isAdded()) {
                     transaction.show(navigationFragment);
                     navigationFragment.againRequestData(state);
                 } else {
-                    navigationFragment = new newHomeFragment();
+                    navigationFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("state","2");
+                    bundle.putString("content","2");
                     navigationFragment.setArguments(bundle);
                     transaction.add(R.id.module, navigationFragment);
                 }
                 break;
-            //标杆页面
+            //3页面
             case 3:
                 if (applyFragment != null && applyFragment.isAdded()) {
                     transaction.show(applyFragment);
                     applyFragment.againRequestData(state);
                 } else {
-                    applyFragment = new newHomeFragment();
+                    applyFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("state","3");
+                    bundle.putString("content","3");
                     applyFragment.setArguments(bundle);
                     transaction.add(R.id.module, applyFragment);
                 }
                 break;
 
 
-            //我的页面
+            //4页面
             case 4:
                 if (myFragment != null && myFragment.isAdded()) {
                     transaction.show(myFragment);
                     myFragment.againRequestData(state);
                 } else {
-                    myFragment = new newHomeFragment();
+                    myFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("state","4");
+                    bundle.putString("content","4");
                     myFragment.setArguments(bundle);
                     transaction.add(R.id.module, myFragment);
                 }

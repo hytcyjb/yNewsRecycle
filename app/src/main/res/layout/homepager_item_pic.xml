@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_home_pic"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/View_itemfour"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/image_relative"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/text_color_19" />
+
+    <RelativeLayout
+        android:id="@+id/image_relative"
+        android:layout_width="122dp"
+        android:layout_height="94dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/text_12"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="@dimen/text_11"
+        android:layout_marginTop="@dimen/text_12"
+        android:background="@drawable/selector_borad_frame"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_three_mini"
+            android:layout_width="120dp"
+            android:layout_height="90dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/morendengdai" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_four_RL"
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:layout_alignBaseline="@+id/image_relative"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/text_6"
+        android:layout_marginRight="@dimen/text_12"
+        android:layout_marginTop="@dimen/text_6"
+        android:layout_toLeftOf="@+id/image_relative"
+        android:layout_toRightOf="@+id/image_relative">
+
+        <TextView
+            android:id="@+id/content_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="默认主标题"
+            android:textColor="@color/bg_home_black"
+            android:textSize="@dimen/text_styFir_1" />
+        <!--android:maxLines="2"-->
+        <TextView
+            android:id="@+id/paper_TX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_three"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/text_3"
+            android:ellipsize="end"
+            android:text="默认副标题"
+            android:textColor="@color/bg_home_gray"
+            android:textSize="@dimen/text_styFir_3" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -8,8 +8,10 @@
         android:id="@+id/module"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/text_40"
-        android:background="@color/text_color_13"></RelativeLayout>
+        android:background="@color/text_color_13"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"></RelativeLayout>
 
     <LinearLayout
         android:id="@+id/radiogroup"
@@ -35,8 +37,9 @@
 
             <ImageView
                 android:id="@+id/home_image"
-                android:layout_width="@dimen/text_16"
-                android:layout_height="@dimen/text_16"
+                android:layout_width="@dimen/text_25"
+                android:layout_height="@dimen/text_25"
+                android:translationY="5dp"
                 android:background="@drawable/homepage_selector"
                 android:focusable="true" />
             <!--  android:background="@drawable/rfid"  -->
@@ -45,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_2"
-                android:text="首页"
+                android:text=""
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/text_11" />
         </LinearLayout>
@@ -60,8 +63,9 @@
 
             <ImageView
                 android:id="@+id/bag_image"
-                android:layout_width="@dimen/text_16"
-                android:layout_height="@dimen/text_16"
+                android:layout_width="@dimen/text_25"
+                android:layout_height="@dimen/text_25"
+                android:translationY="5dp"
                 android:background="@drawable/model_select" />
             <!-- android:background="@drawable/tz" -->
             <TextView
@@ -69,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_2"
-                android:text="书包"
+                android:text=""
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/text_11" />
         </LinearLayout>
@@ -101,8 +105,9 @@
 
             <ImageView
                 android:id="@+id/biaogan_image"
-                android:layout_width="@dimen/text_16"
-                android:layout_height="@dimen/text_16"
+                android:layout_width="@dimen/text_25"
+                android:layout_height="@dimen/text_25"
+                android:translationY="5dp"
                 android:background="@drawable/apply_select" />
             <!-- android:background="@drawable/erweima"  -->
             <TextView
@@ -110,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_2"
-                android:text="标杆"
+                android:text=""
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/text_11" />
         </LinearLayout>
@@ -125,8 +130,9 @@
 
             <ImageView
                 android:id="@+id/my_image"
-                android:layout_width="@dimen/text_16"
-                android:layout_height="@dimen/text_16"
+                android:layout_width="@dimen/text_25"
+                android:layout_height="@dimen/text_25"
+                android:translationY="5dp"
                 android:background="@drawable/my_select" />
             <!-- android:background="@drawable/more"  -->
             <TextView
@@ -134,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_2"
-                android:text="我的"
+                android:text=""
                 android:textColor="@color/text_color_1"
                 android:textSize="@dimen/text_11" />
         </LinearLayout>
