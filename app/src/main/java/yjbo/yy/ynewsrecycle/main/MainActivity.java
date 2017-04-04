@@ -5,16 +5,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import net.youmi.android.normal.banner.BannerManager;
+import net.youmi.android.normal.banner.BannerViewListener;
+import net.youmi.android.normal.spot.SpotManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,6 +35,8 @@ import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
  * 2.完成recycleview的封装在app中的使用；
  * 3.完成新闻的滑动，动态添加的功能；
  * 4.技术上需要引入databading
+ * 5.加入了有米广告配置：https://app.youmi.net//sdk/android/17/doc/701/2/cn/有米AndroidSDK通用基本配置文档.html
+ * 6.文字生成图片：参考：http://www.qt86.com/ai.php；我的logo也是这样生成的
  * @author yjbo
  * @time 2017/4/3 10:45
  */
@@ -72,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
      * 1  无账号情况下进行登录
      **/
     private int resultState = 0;
-
 
 
     /**
@@ -120,9 +127,22 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         checkForUpdate();
 
     }
+
+    private void logDebug(String str) {
+        logInfo(str);
+    }
+
+    private void logError(String str) {
+        logInfo(str);
+    }
+
+    private void logInfo(String str) {
+        Log.d("yjbo", str);
+    }
     /**
      * 登录
-     *  如果没有账号，或者没有密码就不登录了；
+     * 如果没有账号，或者没有密码就不登录了；
+     *
      * @author yjbo  @time 2017/3/28 10:24
      */
     private void reLogin() {
@@ -168,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 } else {
                     homePageFragment = new homeFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("state","0");
+                    bundle.putString("state", "0");
                     homePageFragment.setArguments(bundle);
                     transaction.add(R.id.module, homePageFragment);
                 }
@@ -181,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 } else {
                     newModelFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("content","1");
+                    bundle.putString("content", "1");
                     newModelFragment.setArguments(bundle);
                     transaction.add(R.id.module, newModelFragment);
                 }
@@ -194,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 } else {
                     navigationFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("content","2");
+                    bundle.putString("content", "2");
                     navigationFragment.setArguments(bundle);
                     transaction.add(R.id.module, navigationFragment);
                 }
@@ -207,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 } else {
                     applyFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("content","3");
+                    bundle.putString("content", "3");
                     applyFragment.setArguments(bundle);
                     transaction.add(R.id.module, applyFragment);
                 }
@@ -222,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 } else {
                     myFragment = new otherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("content","4");
+                    bundle.putString("content", "4");
                     myFragment.setArguments(bundle);
                     transaction.add(R.id.module, myFragment);
                 }
@@ -299,6 +319,8 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         if (connectionReceiver != null) {
             unregisterReceiver(connectionReceiver);
         }
+        // 展示广告条窗口的 onDestroy() 回调方法中调用
+        BannerManager.getInstance(MainActivity.this).onDestroy();
     }
 
     @OnClick({R.id.home_layout, R.id.bag_layout, R.id.biaogan_layout, R.id.my_layout, R.id.hui_layout})
@@ -418,6 +440,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         if (mBackHandedFragment == null || !mBackHandedFragment.onBackPressed()) {
             if (getSupportFragmentManager().getBackStackEntryCount() == 0) {//最终处理返回事件的地方
 //                bagApplication.exitApp();//退出app
+                SpotManager.getInstance(MainActivity.this).onAppExit();
                 System.exit(0);
                 finish();
                 super.onBackPressed();

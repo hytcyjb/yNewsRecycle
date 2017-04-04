@@ -20,19 +20,22 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    /*注释，以后得改成databading*/
+    /*解析html的文件*/
+    /*引入recycleview*/
+    /*引入图片加载框架*/
+    compile files('libs/YoumiSdk_v7.0.1_2017-01-06.jar')
+    /*有米广告sdk需要*/
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta3'
-    testCompile 'junit:junit:4.12'
-    /*注释，以后得改成databading*/
     compile 'com.jakewharton:butterknife:7.0.0'
-    /*解析html的文件*/
     compile 'org.jsoup:jsoup:1.10.1'
-    /*引入recycleview*/
     compile 'com.android.support:recyclerview-v7:25.3.1'
-    /*引入图片加载框架*/
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    testCompile 'junit:junit:4.12'
 }

@@ -1,6 +1,7 @@
 package yjbo.yy.ynewsrecycle.main;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,8 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import net.youmi.android.normal.banner.BannerManager;
+import net.youmi.android.normal.banner.BannerViewListener;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -31,7 +36,14 @@ public class otherFragment extends BackHandledFragment {
     @Bind(R.id.hint_tv)
     TextView hintTv;
     private View view = null;
+    private Context mContext =null;
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        this.mContext = context;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +58,7 @@ public class otherFragment extends BackHandledFragment {
         String content = arguments.getString("content");
         hintTv.setText(content);
         initData();
+        initgg();
         return view;
     }
 
@@ -54,6 +67,33 @@ public class otherFragment extends BackHandledFragment {
     }
 
 
+    /**
+     * 添加了有米的广告
+     * @author yjbo  @time 2017/4/4 14:49
+     */
+    private void initgg() {
+        // 获取广告条
+        View bannerView = BannerManager.getInstance(mContext)
+                .getBannerView(mContext, new BannerViewListener() {
+                    @Override
+                    public void onRequestSuccess() {
+                    }
+
+                    @Override
+                    public void onSwitchBanner() {
+                    }
+
+                    @Override
+                    public void onRequestFailed() {
+                    }
+                });
+        // 获取要嵌入广告条的布局
+        LinearLayout bannerLayout = (LinearLayout) view.findViewById(R.id.ll_banner);
+        // 将广告条加入到布局中
+        bannerLayout.addView(bannerView);
+    }
+
+    
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
