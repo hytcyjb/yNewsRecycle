@@ -1,3 +1,9 @@
-1.Íê³ÉÊı¾İÔÚcsdnÉÏµÄ½Ó¿ÚÕ¹Ê¾£»£¨»òÕßGitHub£©
-2.Íê³ÉrecycleviewµÄ·â×°ÔÚappÖĞµÄÊ¹ÓÃ£»
-3.Íê³ÉĞÂÎÅµÄ»¬¶¯£¬¶¯Ì¬Ìí¼ÓµÄ¹¦ÄÜ£»
+# yNewsRecycle
+<h2>å°è£…recycleviewçš„adapter</h2>
+
+<h3>å‚è€ƒï¼š</h3> 1.è’‹å¿—ç¢§  2017-03-28 Â http://www.cniao5.com/forum/thread/27e293ae123111e782d600163e0230fa
+
+<h3>ä¸»è¦çš„å°è£…ç±»ï¼š</h3>
+<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen01.png?raw=true" width="300" height="570"></p>
+<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen02.png?raw=true" width="300" height="570"></p>
+<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen03.png?raw=true" width="300" height="570"></p>

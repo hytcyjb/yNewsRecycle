@@ -27,9 +27,11 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import yjbo.yy.ynewsrecycle.R;
 import yjbo.yy.ynewsrecycle.entity.newsClass;
 import yjbo.yy.ynewsrecycle.home.NewHomepagerAdapter;
+import yjbo.yy.ynewsrecycle.mainutil.CommonUtil;
 import yjbo.yy.ynewsrecycle.mainutil.PSFirst;
 import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
 
@@ -49,6 +51,7 @@ public class HomeFragment extends BackHandledFragment {
     private Context mContext;
     private List<Fragment> mNewsFragmentList = new ArrayList<>();
     private List<String> nodeIdList = new ArrayList<>();
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -103,21 +106,16 @@ public class HomeFragment extends BackHandledFragment {
         }
     };
 
-    /**
-     * js本地代码相互调用
-     *
-     * @author yjbo
-     */
-    class InJavaScriptLocalObj {
-        @JavascriptInterface
-        public void showSource(String html) {
-            Log.d("HTML=====", html + "---");
-            Message msg = new Message();
-            msg.what = 2;
-            msg.obj = html;
-            mHandler.sendMessage(msg);
+    @OnClick({R.id.add, R.id.add_rl})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.add:
+            case R.id.add_rl:
+                CommonUtil.toast(mContext, "添加模块还没添加");
+                break;
         }
     }
+
 
     private boolean hadIntercept;
 
@@ -193,19 +191,20 @@ public class HomeFragment extends BackHandledFragment {
                 newsClass newsClass = datas.get(i);
                 String nodeId = newsClass.getTitle();
                 String type = newsClass.getType();
-                HomeItemFragment newsListFragment = createListFragments(nodeId, i + "",type);
+                HomeItemFragment newsListFragment = createListFragments(nodeId, i + "", type);
                 mNewsFragmentList.add(newsListFragment);
                 nodeIdList.add(nodeId);
             }
             viewPager.setAdapter(new NewHomepagerAdapter(getActivity().getSupportFragmentManager(),
-                     nodeIdList, mNewsFragmentList));
+                    nodeIdList, mNewsFragmentList));
             //设置tabayout和viewpager相关联
             home_tabLayout.setViewPager(viewPager);
-            viewPager.setCurrentItem(0, false);
+            viewPager.setCurrentItem(0, true);
         } else {
         }
 //        }
     }
+
     public HomeItemFragment createListFragments(String mNodeId, String mPosition, String type) {
         HomeItemFragment homeItemFrag = new HomeItemFragment();
         Bundle bundle = new Bundle();
@@ -215,6 +214,7 @@ public class HomeFragment extends BackHandledFragment {
         homeItemFrag.setArguments(bundle);
         return homeItemFrag;
     }
+
     public void againRequestData(int state) {
     }
 

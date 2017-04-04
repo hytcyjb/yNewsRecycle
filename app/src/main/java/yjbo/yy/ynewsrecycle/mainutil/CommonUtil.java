@@ -3,6 +3,7 @@ package yjbo.yy.ynewsrecycle.mainutil;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.Gravity;
 import android.widget.Toast;
 
 /**
@@ -22,6 +23,13 @@ public class CommonUtil {
         Toast toast = Toast.makeText(mcontext, toastStr, Toast.LENGTH_SHORT);
         toast.setGravity(i, 0, 0);//Gravity.CENTER
         toast.show();
+    }
+    /**
+     * 默认的吐司
+     * @author yjbo  @time 2017/4/4 18:10
+     */
+    public static void toast(Context mcontext, String toastStr) {
+        toast(mcontext,toastStr, Gravity.CENTER);
     }
 
     /***
