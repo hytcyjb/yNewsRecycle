@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_home_pic"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/rl_home_pic"
     android:background="@color/white">
-
-    <View
-        android:id="@+id/View_itemfour"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@+id/image_relative"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/text_color_19" />
 
     <RelativeLayout
         android:id="@+id/image_relative"
@@ -37,7 +28,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/morendengdai" />
+            android:src="@drawable/template" />
     </RelativeLayout>
 
     <RelativeLayout

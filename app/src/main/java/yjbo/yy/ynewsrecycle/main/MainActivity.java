@@ -15,11 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.youmi.android.normal.banner.BannerManager;
-import net.youmi.android.normal.banner.BannerViewListener;
 import net.youmi.android.normal.spot.SpotManager;
 
 import butterknife.Bind;
@@ -37,6 +35,7 @@ import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
  * 4.技术上需要引入databading
  * 5.加入了有米广告配置：https://app.youmi.net//sdk/android/17/doc/701/2/cn/有米AndroidSDK通用基本配置文档.html
  * 6.文字生成图片：参考：http://www.qt86.com/ai.php；我的logo也是这样生成的
+ * 7.12生肖的图片：http://www.gkstk.com/article/1356407209171.html#touch
  * @author yjbo
  * @time 2017/4/3 10:45
  */
@@ -63,11 +62,11 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
     ImageView huiImage;
     mainApplication bagApplication;
     private FragmentManager fragmentManager;
-    private homeFragment homePageFragment;
-    private otherFragment newModelFragment;
-    private otherFragment navigationFragment;
-    private otherFragment applyFragment;
-    private otherFragment myFragment;
+    private HomeFragment homePageFragment;
+    private OtherFragment newModelFragment;
+    private OtherFragment navigationFragment;
+    private OtherFragment applyFragment;
+    private MyFragment myFragment;
     private int selectCheckedId = 0;
     private LocalBroadcastManager broadcastManager;
     private RefreshListReceiver receiver;
@@ -106,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        getSupportActionBar().hide();
 
         fragmentManager = getSupportFragmentManager();
 
@@ -186,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                         isClickHome = true;
                     }
                 } else {
-                    homePageFragment = new homeFragment();
+                    homePageFragment = new HomeFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("state", "0");
                     homePageFragment.setArguments(bundle);
@@ -199,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                     transaction.show(newModelFragment);
                     newModelFragment.againRequestData(state);
                 } else {
-                    newModelFragment = new otherFragment();
+                    newModelFragment = new OtherFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("content", "1");
                     newModelFragment.setArguments(bundle);
@@ -212,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                     transaction.show(navigationFragment);
                     navigationFragment.againRequestData(state);
                 } else {
-                    navigationFragment = new otherFragment();
+                    navigationFragment = new OtherFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("content", "2");
                     navigationFragment.setArguments(bundle);
@@ -225,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                     transaction.show(applyFragment);
                     applyFragment.againRequestData(state);
                 } else {
-                    applyFragment = new otherFragment();
+                    applyFragment = new OtherFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("content", "3");
                     applyFragment.setArguments(bundle);
@@ -240,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                     transaction.show(myFragment);
                     myFragment.againRequestData(state);
                 } else {
-                    myFragment = new otherFragment();
+                    myFragment = new MyFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("content", "4");
                     myFragment.setArguments(bundle);

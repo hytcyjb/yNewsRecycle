@@ -39,6 +39,8 @@ public class SplashActivity extends AppCompatActivity {
         // 移除标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_splash);
 
         // 当系统为6.0以上时，需要申请权限

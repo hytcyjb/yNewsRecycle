@@ -30,7 +30,7 @@ import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
  * @author yjbo
  * @time 2017/4/3 16:22
  */
-public class otherFragment extends BackHandledFragment {
+public class OtherFragment extends BackHandledFragment {
 
 
     @Bind(R.id.hint_tv)
@@ -63,12 +63,12 @@ public class otherFragment extends BackHandledFragment {
     }
 
     private void initData() {
-        new Thread(runnable).start();
+//        new Thread(runnable).start();
     }
 
 
     /**
-     * 添加了有米的广告
+     * 添加了有米的广告---4 广告条调用
      * @author yjbo  @time 2017/4/4 14:49
      */
     private void initgg() {

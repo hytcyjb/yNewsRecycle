@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/ll_banner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/actionbar_press"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"></LinearLayout>
+
+    <TextView
+        android:id="@+id/hint_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_banner"
+        android:layout_centerVertical="true"
+        android:paddingLeft="10dp"
+        android:paddingTop="30dp"
+        android:text="@string/my_show"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_20" />
+
+    <TextView
+        android:id="@+id/github_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hint_tv"
+        android:layout_centerVertical="true"
+        android:autoLink="web"
+        android:paddingLeft="30dp"
+        android:text="https://github.com/hytcyjb/yNewsRecycle"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_20" />
+
+</RelativeLayout>

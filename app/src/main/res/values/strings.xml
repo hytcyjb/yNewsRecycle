@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">yNews</string>
+    <string name="my_show">本项目的目的：\n 1.完成新闻的多项列表显示，滑动，动态添加的功能；\n
+        2.完成通过接口访问的形式读取csdn博客上的json数据（jsoup包,html技术）；\n
+        3.完成recycleview的封装在app中的使用；\n
+        4.完成不同样式的内容在页面上显示；\n
+        \n
+        <div style="color: #ffff00" >QQ:1457521527（相互交流）</div> \n
+        GitHub：</string>
 </resources>
