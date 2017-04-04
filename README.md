@@ -15,12 +15,12 @@
  */
 
 <h3>本项目预计完成的内容：</h3>
-\n  1.完成新闻的多项列表显示，滑动，动态添加的功能；\n
-    2.完成通过接口访问的形式读取csdn博客上的json数据（jsoup包,html技术）；\n
-    3.完成recycleview的封装在app中的使用；\n
-    4.完成不同样式的内容在页面上显示；\n
-    \n
-    <div style="color: #ffff00" >QQ:1457521527（相互交流）</div> \n
+<br />  1.完成新闻的多项列表显示，滑动，动态添加的功能；<br />
+    2.完成通过接口访问的形式读取csdn博客上的json数据（jsoup包,html技术）；<br />
+    3.完成recycleview的封装在app中的使用；<br />
+    4.完成不同样式的内容在页面上显示；<br />
+    <br />
+    <div style="color: #ffff00" >QQ:1457521527（相互交流）</div> <br />
     GitHub：https://github.com/hytcyjb/yNewsRecycle
 
 
