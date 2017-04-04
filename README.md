@@ -25,6 +25,6 @@
 
 
 <h3>效果图：</h3>
-<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen01.png?raw=true" width="300" height="570"></p>
-<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen02.png?raw=true" width="300" height="570"></p>
-<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen03.png?raw=true" width="300" height="570"></p>
+<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen01.png?raw=true" width="300" height="570">
+<div>     </div><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen02.png?raw=true" width="300" height="570">
+<div>     </div><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen03.png?raw=true" width="300" height="570"></p>
