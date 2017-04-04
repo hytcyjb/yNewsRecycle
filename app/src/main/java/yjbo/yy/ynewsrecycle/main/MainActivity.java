@@ -257,10 +257,10 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
     private void hideBj(int checkedId) {
         homeImage.setBackgroundResource(R.drawable.home_defult);
         homeTxt.setTextColor(getResources().getColor(R.color.text_color_1));
-        bagImage.setBackgroundResource(R.drawable.icon_bookbag_defult);
+        bagImage.setBackgroundResource(R.drawable.app_2_0);
         bagTxt.setTextColor(getResources().getColor(R.color.text_color_1));
-        huiImage.setBackgroundResource(R.drawable.icon_center_defult);
-        biaoganImage.setBackgroundResource(R.drawable.icon_model_defult_2x);
+        huiImage.setBackgroundResource(R.drawable.app_1_0);
+        biaoganImage.setBackgroundResource(R.drawable.app_3_0);
         biaoganTxt.setTextColor(getResources().getColor(R.color.text_color_1));
         myImage.setBackgroundResource(R.drawable.icon_mine_defult);
         myTxt.setTextColor(getResources().getColor(R.color.text_color_1));
@@ -271,14 +271,14 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 homeTxt.setTextColor(getResources().getColor(R.color.bg_blue));
                 break;
             case 1:
-                bagImage.setBackgroundResource(R.drawable.icon_bookbag_pressed);
+                bagImage.setBackgroundResource(R.drawable.app_2_1);
                 bagTxt.setTextColor(getResources().getColor(R.color.bg_blue));
                 break;
             case 2:
-                huiImage.setBackgroundResource(R.drawable.icon_center_pressed);
+                huiImage.setBackgroundResource(R.drawable.app_1_1);
                 break;
             case 3:
-                biaoganImage.setBackgroundResource(R.drawable.icon_model_pressed);
+                biaoganImage.setBackgroundResource(R.drawable.app_3_1);
                 biaoganTxt.setTextColor(getResources().getColor(R.color.bg_blue));
                 break;
             case 4:
