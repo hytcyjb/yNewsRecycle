@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
     private FragmentManager fragmentManager;
     private HomeFragment homePageFragment;
     private OtherFragment newModelFragment;
-    private OtherFragment navigationFragment;
+    private CentreFragment navigationFragment;
     private OtherFragment applyFragment;
     private MyFragment myFragment;
     private int selectCheckedId = 0;
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 } else {
                     newModelFragment = new OtherFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("content", "1");
+                    bundle.putString("content", "2");
                     newModelFragment.setArguments(bundle);
                     transaction.add(R.id.module, newModelFragment);
                 }
@@ -213,9 +213,9 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                     transaction.show(navigationFragment);
                     navigationFragment.againRequestData(state);
                 } else {
-                    navigationFragment = new OtherFragment();
+                    navigationFragment = new CentreFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("content", "2");
+                    bundle.putString("content", "1");
                     navigationFragment.setArguments(bundle);
                     transaction.add(R.id.module, navigationFragment);
                 }

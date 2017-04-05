@@ -60,11 +60,12 @@ public class MyFragment extends BackHandledFragment {
         String content = arguments.getString("content");
 //        hintTv.setText(content);
         initData();
-        initgg();
+
         return view;
     }
 
     private void initData() {
+        //        initgg();
     }
 
 

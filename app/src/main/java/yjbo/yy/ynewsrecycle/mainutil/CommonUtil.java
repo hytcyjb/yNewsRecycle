@@ -4,7 +4,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.Gravity;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
+import yjbo.yy.ynewsrecycle.R;
+import yjbo.yy.ynewsrecycle.mainutil.baseAdapter.RecyclerViewHolder;
 
 /**
  * 公共方法类
@@ -24,12 +31,14 @@ public class CommonUtil {
         toast.setGravity(i, 0, 0);//Gravity.CENTER
         toast.show();
     }
+
     /**
      * 默认的吐司
+     *
      * @author yjbo  @time 2017/4/4 18:10
      */
     public static void toast(Context mcontext, String toastStr) {
-        toast(mcontext,toastStr, Gravity.CENTER);
+        toast(mcontext, toastStr, Gravity.CENTER);
     }
 
     /***
@@ -54,12 +63,14 @@ public class CommonUtil {
         }
         return false;
     }
+
     /**
      * 获取提示信息
+     *
      * @author yjbo
      * @time 2017/2/12 14:23
      */
-    public static String getTipStr(final int netGet, final int nonetGet){
+    public static String getTipStr(final int netGet, final int nonetGet) {
         int cacheTime = setCacheTime;
         String netGetStr = "";
         String nonetGetStr = "";
@@ -81,10 +92,57 @@ public class CommonUtil {
         }
         return "当前是：" + "\n1." + netGetStr + "\n2." + nonetGetStr;
     }
+
     /**
      * 设置缓存时间
+     *
      * @author yjbo
      * @time 2017/2/12 14:25
      */
-    public static int  setCacheTime = 60;
+    public static int setCacheTime = 60;
+
+    /**
+     * 去除接口中返回的不正常字段
+     *
+     * @author yjbo  @time 2017/4/5 10:04
+     */
+    public static String repalceCsdnStr(String str) {
+        String s = "";
+        s = str.replaceAll("“", "\"")
+                .replaceAll("”", "\"")
+                .replaceAll(" ", "");
+        System.out.println("===" + s);
+        return s;
+    }
+
+    /**
+     * Glide获取图片
+     *
+     * @author yjbo  @time 2017/4/5 14:36
+     */
+    public static void downImg(Context mContext, ImageView imageView, String path) {
+        Glide.with(mContext)
+                .load(path)
+                .placeholder(R.mipmap.ic_launcher_round) // 同样也可以是drawble
+                .error(R.mipmap.ic_launcher)// 当不能加载时载入
+                .into(imageView);
+    }
+
+    /**
+     * .resize(50, 50) .centerCrop()
+     *
+     * @author yjbo
+     * @time 2016/10/31 13:16
+     */
+    public static void PicassoUtil(Context context, ImageView imageView, String iconUrl) {
+        try {
+            Picasso.with(context)
+                    .load(iconUrl)
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .error(R.mipmap.ic_launcher_round)
+                    .into(imageView);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
