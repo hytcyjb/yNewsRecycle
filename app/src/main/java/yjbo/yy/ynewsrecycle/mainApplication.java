@@ -2,6 +2,10 @@ package yjbo.yy.ynewsrecycle;
 
 import android.app.Application;
 
+import com.orhanobut.logger.Logger;
+
+import yjbo.yy.ynewsrecycle.mainutil.LogUtils;
+
 /**
  * 主application
  *
@@ -13,5 +17,8 @@ public class mainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        if (BuildConfig.DEBUG){
+            new LogUtils(true);
+        }
     }
 }

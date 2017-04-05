@@ -123,8 +123,8 @@ public class CommonUtil {
     public static void downImg(Context mContext, ImageView imageView, String path) {
         Glide.with(mContext)
                 .load(path)
-                .placeholder(R.mipmap.ic_launcher_round) // 同样也可以是drawble
-                .error(R.mipmap.ic_launcher)// 当不能加载时载入
+                .placeholder(R.drawable.logo) // 同样也可以是drawble
+                .error(R.drawable.logo)// 当不能加载时载入
                 .into(imageView);
     }
 
@@ -138,8 +138,8 @@ public class CommonUtil {
         try {
             Picasso.with(context)
                     .load(iconUrl)
-                    .placeholder(R.mipmap.ic_launcher_round)
-                    .error(R.mipmap.ic_launcher_round)
+                    .placeholder(R.drawable.logo)
+                    .error(R.drawable.logo)
                     .into(imageView);
         } catch (Exception ex) {
             ex.printStackTrace();

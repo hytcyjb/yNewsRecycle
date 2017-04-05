@@ -34,6 +34,7 @@ import yjbo.yy.ynewsrecycle.R;
 import yjbo.yy.ynewsrecycle.entity.newsClass;
 import yjbo.yy.ynewsrecycle.home.NewHomepagerAdapter;
 import yjbo.yy.ynewsrecycle.mainutil.CommonUtil;
+import yjbo.yy.ynewsrecycle.mainutil.LogUtils;
 import yjbo.yy.ynewsrecycle.mainutil.PSFirst;
 import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
 import yjbo.yy.ynewsrecycle.splash.SplashActivity;
@@ -95,7 +96,7 @@ public class HomeFragment extends BackHandledFragment {
                     String ptext = p.text();
                     if (ptext.contains("yjbointertitle")) {
                         String replaceStr = ptext.replace("yjbointertitle", "");
-//                        System.out.println("返回值：" + replaceStr);
+                        LogUtils.d("返回值：" + replaceStr);
                         Message msg = new Message();
                         msg.obj = replaceStr;
                         msg.what = 0;

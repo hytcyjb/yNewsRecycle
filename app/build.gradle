@@ -41,4 +41,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     /*引入图片加载框架*/
     compile 'com.squareup.picasso:picasso:2.3.2'
+    /*log打印，引用：https://github.com/orhanobut/logger*/
+    compile 'com.orhanobut:logger:1.15'
 }

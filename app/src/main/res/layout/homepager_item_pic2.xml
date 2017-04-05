@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_home_pic"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white">
-
+    android:layout_height="wrap_content">
+<!-- 不能加背景色，加了会出现不显示分割线的情形
+    android:background="@color/white"-->
     <RelativeLayout
         android:id="@+id/image_relative"
         android:layout_width="122dp"
@@ -27,7 +27,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/template" />
+            android:src="@drawable/logo" />
     </RelativeLayout>
 
     <RelativeLayout

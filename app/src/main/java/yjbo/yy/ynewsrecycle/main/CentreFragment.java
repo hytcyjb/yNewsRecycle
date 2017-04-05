@@ -37,6 +37,7 @@ import yjbo.yy.ynewsrecycle.home.CentreRecyclerAdapter;
 import yjbo.yy.ynewsrecycle.home.HomeRecyclerAdapter;
 import yjbo.yy.ynewsrecycle.home.WrapRecyclerAdapter;
 import yjbo.yy.ynewsrecycle.mainutil.CommonUtil;
+import yjbo.yy.ynewsrecycle.mainutil.DividerGridItemDecorationCopy;
 import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
 
 /**
@@ -82,11 +83,13 @@ public class CentreFragment extends BackHandledFragment {
 
     protected void initView() {
         //添加分割线
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+//        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+        //这个自定义的不能写上去，会报错，所以就不要写
+//        mRecyclerView.addItemDecoration(new DividerGridItemDecorationCopy(mContext,0,0));
 //        //添加布局管理器--列表
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         //添加布局管理器--网格
-        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 5));
 
 
     }
@@ -226,6 +229,7 @@ public class CentreFragment extends BackHandledFragment {
                     }
                     if (datas.size() > 0) {
                         mAdapterDemo = new CentreRecyclerAdapter(mContext, datas);
+                        mRecyclerView.addItemDecoration(new DividerGridItemDecorationCopy(mContext,0,0));
                         mRecyclerView.setAdapter(mAdapterDemo);
 //                        mWrapRecyclerAdapter = new WrapRecyclerAdapter(mAdapterDemo);
 //                        mRecyclerView.setAdapter(mWrapRecyclerAdapter);
@@ -263,15 +267,15 @@ public class CentreFragment extends BackHandledFragment {
                             mAdapterDemo = new CentreRecyclerAdapter(mContext, datas);
                         }
                         mWrapRecyclerAdapter = new WrapRecyclerAdapter(mContext,mAdapterDemo);
-                        mRecyclerView.setAdapter(mWrapRecyclerAdapter);
-
 
                         final View headerView = LayoutInflater.from(mContext).inflate(R.layout.layout_header, mRecyclerView, false);
-//                        final View footView = LayoutInflater.from(mContext).inflate(R.layout.layout_footer, mRecyclerView, false);
+                        final View footView = LayoutInflater.from(mContext).inflate(R.layout.layout_footer, mRecyclerView, false);
                         mWrapRecyclerAdapter.addHeaderView(headerView);
-//                        mWrapRecyclerAdapter.addFooterView(footView);
-
+                        mWrapRecyclerAdapter.addFooterView(footView);
                         mWrapRecyclerAdapter.updateHeaderView(headerView,datas.get(1).getImage(),datas.get(1).getTitle());
+
+                        mRecyclerView.addItemDecoration(new DividerGridItemDecorationCopy(mContext,1,1));
+                        mRecyclerView.setAdapter(mWrapRecyclerAdapter);
 
                     } else {
                     }
