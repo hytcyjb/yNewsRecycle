@@ -1,5 +1,5 @@
 # yNewsRecycle
-<h2>封装recycleview的adapter</h2>
+<h2>yNewsRecycle--一个新闻客户端的定位app</h2>
 <h3>项目引用的内容：</h3>
 /**<br>
  * 项目主要完成内容：<br>
