@@ -31,3 +31,6 @@
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen03.png?raw=true" width="335" height="535" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen04.png?raw=true" width="335" height="535" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen05.png?raw=true" width="335" height="535" marge="20"></p>
+<h3>
+有问题请联系我的QQ：1457521527；<br>喜欢就帮忙star一下，谢谢哈！<br>
+</h3>
