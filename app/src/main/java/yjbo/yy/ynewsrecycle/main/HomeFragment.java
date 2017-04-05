@@ -2,12 +2,14 @@ package yjbo.yy.ynewsrecycle.main;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,7 @@ import yjbo.yy.ynewsrecycle.home.NewHomepagerAdapter;
 import yjbo.yy.ynewsrecycle.mainutil.CommonUtil;
 import yjbo.yy.ynewsrecycle.mainutil.PSFirst;
 import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
+import yjbo.yy.ynewsrecycle.splash.SplashActivity;
 
 /**
  * 首页的fragment
@@ -111,11 +114,23 @@ public class HomeFragment extends BackHandledFragment {
         switch (view.getId()) {
             case R.id.add:
             case R.id.add_rl:
-                CommonUtil.toast(mContext, "添加模块还没添加");
+//                CommonUtil.toast(mContext, "添加模块还没添加");
+                CommonUtil.toast(mContext,"还未完善，先看广告吧！！！", Gravity.CENTER);
+                Intent intent = new Intent();
+                intent.setClass(mContext, SplashActivity.class);
+                intent.putExtra("otherFlag", "HomeFragment");
+                startActivityForResult(intent, 101);
                 break;
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        int currentItem = viewPager.getCurrentItem();
+        System.out.println(requestCode + "====" + resultCode + "===" + currentItem);
+//        viewPager.setCurrentItem(10, true);
+    }
 
     private boolean hadIntercept;
 
@@ -199,10 +214,20 @@ public class HomeFragment extends BackHandledFragment {
                     nodeIdList, mNewsFragmentList));
             //设置tabayout和viewpager相关联
             home_tabLayout.setViewPager(viewPager);
-            viewPager.setCurrentItem(0, true);
+            /**
+             * 默认初始化时先在第一个，延时2s之后跳转到想要的那个位置，不延时则报错；
+             * @author yjbo  @time 2017/4/5 15:52
+             */
+            CommonUtil.toast(mContext,"2s后跳转到“申猴”···", Gravity.CENTER);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    viewPager.setCurrentItem(8, true);
+                }
+            }, 2 * 1000);
+//            viewPager.setCurrentItem(0, true);
         } else {
         }
-//        }
     }
 
     public HomeItemFragment createListFragments(String mNodeId, String mPosition, String type) {

@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,6 +31,8 @@ public class SplashActivity extends AppCompatActivity {
 
     private PermissionHelper mPermissionHelper;
     private String TAG = "yjbo";
+    private String flag = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,9 @@ public class SplashActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_splash);
+
+        Intent intent = this.getIntent();
+        flag = intent.getStringExtra("otherFlag");
 
         // 当系统为6.0以上时，需要申请权限
         mPermissionHelper = new PermissionHelper(this);
@@ -68,6 +74,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -175,5 +182,18 @@ public class SplashActivity extends AppCompatActivity {
         super.onDestroy();
         // 开屏展示界面的 onDestroy() 回调方法中调用
         SpotManager.getInstance(SplashActivity.this).onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                if ("HomeFragment".equals(flag)) {
+                    setResult(1001);
+                }
+                finish();
+                break;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
