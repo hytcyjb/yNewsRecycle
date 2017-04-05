@@ -25,6 +25,7 @@
 
 
 <h3>效果图：</h3>
+<p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screengif.gif?raw=true" width="332" height="515" marge="20"></p>
 <p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen01.png?raw=true" width="332" height="515" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen02.png?raw=true" width="332" height="533" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen03.png?raw=true" width="364" height="602" marge="20">
