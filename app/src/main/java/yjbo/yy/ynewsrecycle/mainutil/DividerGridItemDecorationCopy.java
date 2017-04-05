@@ -87,7 +87,7 @@ public class DividerGridItemDecorationCopy extends RecyclerView.ItemDecoration
                 +"=-=="+headCount+"=-=="+footCount);
         for (int i = 0; i < childCount; i++)
         {
-            if (i == childCount -1) continue;
+//            if (i == childCount ) continue;
             final View child = parent.getChildAt(i);
             LogUtils.d("==child == null=00="+i);
             if (child == null) {
@@ -150,18 +150,16 @@ public class DividerGridItemDecorationCopy extends RecyclerView.ItemDecoration
 
         for (int i = 0; i < childCount; i++)
         {
-            final View child = parent.getChildAt(i);
-
-            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
-                    .getLayoutParams();
-
+//            final View child = parent.getChildAt(i);
+//
+//            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
+//                    .getLayoutParams();
 
             if (headCount > i){//有头文件时不绘制
-
             }else {
                 if (footCount != 0 && i >= childCount-footCount){//此时不绘制尾部
                 }else {
-                    if (i == headCount) {
+//                    if (i == headCount) {//添加最左侧的一个竖条
                         LogUtils.d("==for循环参数==="+childCount+"==="+headCount+"--"+footCount+"=="+childCount2);
                         for (int j = 0;j<= childCount2-footCount-headCount;j++) {
                             //这是每行的第一个得绘制
@@ -173,20 +171,20 @@ public class DividerGridItemDecorationCopy extends RecyclerView.ItemDecoration
                                     }
                                  RecyclerView.LayoutParams params2 = (RecyclerView.LayoutParams) child2
                                         .getLayoutParams();
-                                final int top0 = child2.getTop() - params2.topMargin - mDivider.getIntrinsicWidth();
+                                final int top0 = child2.getTop() + params2.topMargin - mDivider.getIntrinsicWidth();
                                 final int bottom0 = child2.getBottom() + params2.bottomMargin;
                                 final int left0 = 0;//child2.getLeft() - params2.leftMargin
                                 final int right0 = left0 + mDivider.getIntrinsicWidth();
 
-//                                LogUtils.d("==for循环参数===垂直时绘制图形==每行最左侧==" + j + "--" + headCount + "-|-" + spanCount
-//                                        + "===" + left0 + "===" + top0 + "===" + right0 + "===" + bottom0
-//                                        + "===" + child2.getLeft() + "====" + params2.leftMargin);
+                                LogUtils.d("==for循环参数===垂直时绘制图形==每行最左侧==" + j + "--" + headCount + "---" + spanCount
+                                        + "===" + left0 + "===" + top0 + "===" + right0 + "===" + bottom0
+                                        + "===" + child2.getLeft() + "====" + params2.leftMargin);
                                 mDivider.setBounds(left0, top0, right0, bottom0);
                                 mDivider.draw(c);
                             }
                         }
-                    }
-                    if (i == headCount) {
+//                    }
+                    if (i == headCount) {//正常的垂直页面
                         for (int x= 0;x<= childCount2-footCount-headCount;x++) {
                             View child3 = parent.getChildAt(x);
                             if (child3 == null){
