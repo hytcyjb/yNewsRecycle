@@ -29,4 +29,5 @@
 <p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen01.png?raw=true" width="332" height="515" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen02.png?raw=true" width="332" height="533" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen03.png?raw=true" width="364" height="602" marge="20">
-<img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen04.png?raw=true" width="335" height="535" marge="20"></p>
+<img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen04.png?raw=true" width="335" height="535" marge="20">
+<img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen05.png?raw=true" width="335" height="535" marge="20"></p>
