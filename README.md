@@ -8,6 +8,13 @@
 5.**引入retrofit + okhttp （在3.0中将使用MVP模式;以及databinding数据绑定）<br>
 6.**将引入html浏览器框架；<br>
 <br>
+<h2>1.0版本：2017年4月3日15:55:06开始</h2><br />
+    1.完成新闻的多项列表显示，滑动，动态添加的功能；<br>
+    2.完成通过接口访问的形式读取csdn博客上的json数据（jsoup包,html技术）；<br>
+    3.完成recycleview的封装在app中的使用；<br>
+    4.完成不同样式的内容在页面上显示；<br>
+    <br>
+
 <h3>项目引用的内容：</h3>
 /**<br>
  * 项目主要完成内容：<br>
@@ -20,16 +27,11 @@
  * 7.12生肖的图片：http://www.gkstk.com/article/1356407209171.html#touch<br>
  * @author yjbo<br>
  * @time 2017/4/3 10:45<br>
- */<br>
-
-<h2>1.0版本：2017年4月3日15:55:06开始</h2><br />
-    1.完成新闻的多项列表显示，滑动，动态添加的功能；<br>
-    2.完成通过接口访问的形式读取csdn博客上的json数据（jsoup包,html技术）；<br>
-    3.完成recycleview的封装在app中的使用；<br>
-    4.完成不同样式的内容在页面上显示；<br>
-    <br>
-    <div style="color: #ffff00" >QQ:1457521527（相互交流）</div> <br>
-    GitHub：https://github.com/hytcyjb/yNewsRecycle
+ */
+ <br>
+ <br>
+ <div style="color: #ffff00" >QQ:1457521527（相互交流）</div> <br>
+ GitHub：https://github.com/hytcyjb/yNewsRecycle
 
 
 <h3>效果图：</h3>
