@@ -12,7 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import net.youmi.android.normal.banner.BannerManager;
@@ -57,6 +59,7 @@ public class CentreFragment extends BackHandledFragment {
     private Context mContext = null;
     private CentreRecyclerAdapter mAdapterDemo;
     private WrapRecyclerAdapter mWrapRecyclerAdapter;
+    private int showCount = 4;//显示的数量
 
     @Override
     public void onAttach(Context context) {
@@ -89,7 +92,7 @@ public class CentreFragment extends BackHandledFragment {
 //        //添加布局管理器--列表
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         //添加布局管理器--网格
-        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 5));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, showCount));
 
 
     }
@@ -269,10 +272,18 @@ public class CentreFragment extends BackHandledFragment {
                         mWrapRecyclerAdapter = new WrapRecyclerAdapter(mContext,mAdapterDemo);
 
                         final View headerView = LayoutInflater.from(mContext).inflate(R.layout.layout_header, mRecyclerView, false);
-                        final View footView = LayoutInflater.from(mContext).inflate(R.layout.layout_footer, mRecyclerView, false);
+//                        final View footView = LayoutInflater.from(mContext).inflate(R.layout.layout_footer, mRecyclerView, false);
                         mWrapRecyclerAdapter.addHeaderView(headerView);
-                        mWrapRecyclerAdapter.addFooterView(footView);
-                        mWrapRecyclerAdapter.updateHeaderView(headerView,datas.get(1).getImage(),datas.get(1).getTitle());
+//                        mWrapRecyclerAdapter.addFooterView(footView);
+
+                        RelativeLayout rl_header = (RelativeLayout) headerView.findViewById(R.id.rl_header);
+                        rl_header.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                CommonUtil.dip2px(mContext, 280)));
+
+                        int x =(int)(Math.random()*datas.size());
+                        x = x < (datas.size() -1) ? x : (datas.size() -1);
+                        //"http://video.89mc.com/89mc/knowledge/img/4bfc0ffe-0143-4a49-9e41-982d68028e3d.jpg"
+                        mWrapRecyclerAdapter.updateHeaderView(headerView,datas.get(x).getImage(),datas.get(x).getTitle());
 
                         mRecyclerView.addItemDecoration(new DividerGridItemDecorationCopy(mContext,1,1));
                         mRecyclerView.setAdapter(mWrapRecyclerAdapter);
