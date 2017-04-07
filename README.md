@@ -1,7 +1,7 @@
 # yNewsRecycle
 <h2>yNewsRecycle--一个新闻客户端的定位app</h2>
 
-<h2>2.0版本：2017年4月6日15:55:06开始</h2>
+<h2>2.0版本：2017年4月6日 （正在做）</h2>
 1.初步完成了项目中需要完成的任务；应该接口的形式是采用html解析获取接口方式；决定将其内容改成测试版；<br>
 2.在2.0中，将使用http://wangyi.butterfly.mopaasapp.com/的api进行信息的规范请求；充实内容；<br>
 3.选择一款上拉刷新，下拉加载的框架；XRecycleView，swiptolayout等；<br>
@@ -9,7 +9,7 @@
 5.**引入retrofit + okhttp （在3.0中将使用MVP模式;以及databinding数据绑定）<br>
 6.**将引入html浏览器框架；<br>
 <br>
-<h2>1.0版本：2017年4月3日15:55:06开始：下载地址：https://github.com/hytcyjb/yNewsRecycle/tree/v1.0</h2><br />
+<h2>1.0版本：2017年4月3日 （已完成） 下载地址：https://github.com/hytcyjb/yNewsRecycle/tree/v1.0</h2><br />
     1.完成新闻的多项列表显示，滑动，动态添加的功能；<br>
     2.完成通过接口访问的形式读取csdn博客上的json数据（jsoup包,html技术）；<br>
     3.完成recycleview的封装在app中的使用；<br>
