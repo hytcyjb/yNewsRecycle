@@ -35,7 +35,7 @@
  GitHub：https://github.com/hytcyjb/yNewsRecycle
 
 
-<h3>效果图：</h3>
+<h3>效果图：v1.0版本</h3>
 <p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screengif.gif?raw=true" width="327" height="658" marge="20"></p>
 <p><img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen01.png?raw=true" width="335" height="535" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen02.png?raw=true" width="335" height="535" marge="20">
@@ -43,5 +43,6 @@
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen04.png?raw=true" width="335" height="535" marge="20">
 <img src="https://github.com/hytcyjb/yNewsRecycle/blob/master/screenshot/screen05.png?raw=true" width="335" height="535" marge="20"></p>
 <h3>
+<br>
 有问题请联系我的QQ：1457521527；<br>喜欢就帮忙star一下，谢谢哈！<br>
 </h3>
