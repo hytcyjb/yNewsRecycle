@@ -69,7 +69,6 @@ public class HomeItemFragment extends BackHandledFragment {
         Bundle arguments = getArguments();
         pageNo = "----"+arguments.getString("node_id");
         type = arguments.getString("type");
-//        CommonUtil.toast(mContext, "数据请求成功==="+pageNo, Gravity.CENTER | Gravity.CENTER_HORIZONTAL);
         initView();
         initData();
         return view;
@@ -100,7 +99,6 @@ public class HomeItemFragment extends BackHandledFragment {
                     String typeName = "yjbointerpage"+type;
                     if (ptext.contains(typeName)) {
                         String replaceStr = ptext.replace(typeName, "");
-//                        System.out.println("返回值：" + replaceStr);
                         Message msg = new Message();
                         msg.obj = replaceStr;
                         msg.what = 0;
@@ -108,27 +106,11 @@ public class HomeItemFragment extends BackHandledFragment {
                     }
                 }
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
     };
 
-    /**
-     * js本地代码相互调用
-     *
-     * @author yjbo
-     */
-    class InJavaScriptLocalObj {
-        @JavascriptInterface
-        public void showSource(String html) {
-            Log.d("HTML=====", html + "---");
-            Message msg = new Message();
-            msg.what = 2;
-            msg.obj = html;
-            mHandler.sendMessage(msg);
-        }
-    }
 
     private boolean hadIntercept;
 
@@ -170,8 +152,6 @@ public class HomeItemFragment extends BackHandledFragment {
                         String obj2 = obj.replaceAll("“", "\"")
                                 .replaceAll("”", "\"")
                                 .replaceAll(" ", "");
-//                        System.out.println("-obj--"+obj);
-//                        System.out.println("-obj2--"+obj2);
                         jsonObject = new JSONObject(obj2);
                         if ("success".equals(jsonObject.optString("result"))) {
                             JSONArray jsonArray = jsonObject.optJSONArray("list");

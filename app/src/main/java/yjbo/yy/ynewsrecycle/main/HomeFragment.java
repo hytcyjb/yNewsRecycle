@@ -8,12 +8,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.JavascriptInterface;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -51,6 +50,8 @@ public class HomeFragment extends BackHandledFragment {
     PSFirst home_tabLayout;
     @Bind(R.id.home_viewpager)
     ViewPager viewPager;
+    @Bind(R.id.refresh_btn)
+    Button refreshBtn;
     private View view = null;
     private Context mContext;
     private List<Fragment> mNewsFragmentList = new ArrayList<>();
@@ -94,8 +95,8 @@ public class HomeFragment extends BackHandledFragment {
                 Elements paragraphs = doc.select("p");
                 for (Element p : paragraphs) {
                     String ptext = p.text();
-                    if (ptext.contains("yjbointertitle")) {
-                        String replaceStr = ptext.replace("yjbointertitle", "");
+                    if (ptext.contains("yjbointerNStitle")) {
+                        String replaceStr = ptext.replace("yjbointerNStitle", "");
                         LogUtils.d("返回值：" + replaceStr);
                         Message msg = new Message();
                         msg.obj = replaceStr;
@@ -110,17 +111,20 @@ public class HomeFragment extends BackHandledFragment {
         }
     };
 
-    @OnClick({R.id.add, R.id.add_rl})
+    @OnClick({R.id.add, R.id.add_rl,R.id.refresh_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.add:
             case R.id.add_rl:
 //                CommonUtil.toast(mContext, "添加模块还没添加");
-                CommonUtil.toast(mContext,"还未完善，先看广告吧！！！", Gravity.CENTER);
+                CommonUtil.toast(mContext, "还未完善，先看广告吧！！！", Gravity.CENTER);
                 Intent intent = new Intent();
                 intent.setClass(mContext, SplashActivity.class);
                 intent.putExtra("otherFlag", "HomeFragment");
                 startActivityForResult(intent, 101);
+                break;
+            case R.id.refresh_btn://获取不到数据，点击再次获取
+                initData();
                 break;
         }
     }
@@ -192,8 +196,9 @@ public class HomeFragment extends BackHandledFragment {
 //                        mAdapterDemo = new RecyclerAdapterDemo(mContext, datas);
 //                        mRecyclerView.setAdapter(mAdapterDemo);
                         dealnative(datas);
-
+                        refreshBtn.setVisibility(View.INVISIBLE);
                     } else {
+                        refreshBtn.setVisibility(View.VISIBLE);
                     }
                     break;
             }
@@ -219,13 +224,13 @@ public class HomeFragment extends BackHandledFragment {
              * 默认初始化时先在第一个，延时2s之后跳转到想要的那个位置，不延时则报错；
              * @author yjbo  @time 2017/4/5 15:52
              */
-            CommonUtil.toast(mContext,"2s后跳转到“申猴”···", Gravity.CENTER);
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    viewPager.setCurrentItem(8, true);
-                }
-            }, 2 * 1000);
+//            CommonUtil.toast(mContext, "2s后跳转到“申猴”···", Gravity.CENTER);
+//            mHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    viewPager.setCurrentItem(8, true);
+//                }
+//            }, 2 * 1000);
 //            viewPager.setCurrentItem(0, true);
         } else {
         }

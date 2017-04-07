@@ -3,6 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/refresh_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/black"
+        android:text="点击获取" />
 
     <RelativeLayout
         android:id="@+id/main_rlayout"
@@ -41,13 +48,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
                     android:background="@drawable/shade_linear" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="@dimen/text_6"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/text_6">
+
                     <ImageView
                         android:id="@+id/add"
                         android:layout_width="@dimen/text_17p3"
