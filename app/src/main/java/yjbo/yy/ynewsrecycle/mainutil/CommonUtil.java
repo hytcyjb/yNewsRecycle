@@ -1,6 +1,8 @@
 package yjbo.yy.ynewsrecycle.mainutil;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.Gravity;
@@ -148,5 +150,15 @@ public class CommonUtil {
     public static int dip2px(Context context, float dipValue){
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int)(dipValue * scale + 0.5f);
+    }
+    /**
+     * 跳转到浏览器页面
+     * @author yjbo  @time 2017/4/8 21:54
+     */
+    public static void skipWeb(Activity mActivity,String url){
+        Intent intent = new Intent();
+        intent.setClass(mActivity,debugWebActivity.class);
+        intent.putExtra("URL",url);
+        mActivity.startActivity(intent);
     }
 }

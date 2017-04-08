@@ -21,7 +21,12 @@ public abstract class RecyclerViewAdapter<T> extends RecyclerView.Adapter<Recycl
         this.mDatas = datas;
         this.mInflater = LayoutInflater.from(mContext);
     }
+    //上拉加载更多1-0
+    public void RecyclerAddMoreKindViewAdapter(List<T> datas) {
+        this.mDatas.addAll(datas);
 
+        notifyDataSetChanged();
+    }
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(mLayoutId, parent, false);

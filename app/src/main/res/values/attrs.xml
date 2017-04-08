@@ -15,7 +15,8 @@
         <attr name="pstsPaddingMiddle2" format="boolean" />
         <attr name="pstsTabPaddingLeftRight2" format="dimension" />
         <attr name="pstsTabBackground2" format="reference" />
-        <attr name="pstsTabTextSize2" format="dimension" />
+        <attr name="pstsTabTextSize2" format="dimension" /><!--正常的字的大小-->
+        <attr name="pstsTabTextSize2Select" format="dimension" /><!--选中的字大小-->
         <attr name="pstsTabTextColor2" format="reference" /><!--标题的颜色-->
         <attr name="pstsTabTextStyle2" format="reference">
             <flag name="normal" value="0x0" />

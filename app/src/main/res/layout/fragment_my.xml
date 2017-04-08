@@ -23,17 +23,16 @@
         android:text="@string/my_show"
         android:textColor="@color/black"
         android:textSize="@dimen/text_20" />
-
+<!--android:autoLink="web"-->
     <TextView
         android:id="@+id/github_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/hint_tv"
         android:layout_centerVertical="true"
-        android:autoLink="web"
         android:paddingLeft="30dp"
         android:text="https://github.com/hytcyjb/yNewsRecycle"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_20" />
 
 </RelativeLayout>

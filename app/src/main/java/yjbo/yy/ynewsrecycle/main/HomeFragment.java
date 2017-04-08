@@ -211,7 +211,7 @@ public class HomeFragment extends BackHandledFragment {
             for (int i = 0; i < datas.size(); i++) {
                 newsClass newsClass = datas.get(i);
                 String nodeId = newsClass.getTitle();
-                String type = newsClass.getType();
+                String type = newsClass.getAbs_title();
                 HomeItemFragment newsListFragment = createListFragments(nodeId, i + "", type);
                 mNewsFragmentList.add(newsListFragment);
                 nodeIdList.add(nodeId);

@@ -97,6 +97,7 @@ public class PSFirst extends HorizontalScrollView {
 
     private int mTabPadding = 12;
     private int mTabTextSize = 14;
+    private int mTabTextSizeSelect = 14;
     private ColorStateList mTabTextColor = null;
 
     private int mPaddingLeft = 0;
@@ -184,6 +185,7 @@ public class PSFirst extends HorizontalScrollView {
         mTabPadding = a.getDimensionPixelSize(R.styleable.PSFirst_pstsTabPaddingLeftRight2, mTabPadding);
 //        mTabBackgroundResId = a.getResourceId(R.styleable.PSFirst_pstsTabBackground2, mTabBackgroundResId);
         mTabTextSize = a.getDimensionPixelSize(R.styleable.PSFirst_pstsTabTextSize2, mTabTextSize);
+        mTabTextSizeSelect = a.getDimensionPixelSize(R.styleable.PSFirst_pstsTabTextSize2Select, mTabTextSize);
         mTabTextColor = a.hasValue(R.styleable.PSFirst_pstsTabTextColor2) ? a.getColorStateList(R.styleable.PSFirst_pstsTabTextColor2) : null;
         mTabTextTypefaceStyle = a.getInt(R.styleable.PSFirst_pstsTabTextStyle2, mTabTextTypefaceStyle);
         isTabTextAllCaps = a.getBoolean(R.styleable.PSFirst_pstsTabTextAllCaps2, isTabTextAllCaps);
@@ -303,8 +305,8 @@ public class PSFirst extends HorizontalScrollView {
                 }
                 if(tab_title.isSelected()){
                 //    LogUtils.i("---选中---" + i);
-                //  tab_title.setTextColor(Color.parseColor("#ffffff"));
-                    tab_title.setTextColor(Color.parseColor("#29b4ed"));
+                  tab_title.setTextColor(Color.parseColor("#ffffff"));
+//                    tab_title.setTextColor(Color.parseColor("#29b4ed"));
                     this.setIndicatorHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()));
                 //  tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,mcontext.getResources().getDimension(R.dimen.honor_card_awesome_item_head_size));
 //                    tab_title.setTextSize(16);
@@ -534,7 +536,7 @@ public class PSFirst extends HorizontalScrollView {
                 tab_title.setSelected(false);
                 //LogUtils.i("--select-未选中---");
 //                setTextColor(mTabTextColor);
-                tab_title.setTextColor(Color.parseColor("#666666"));
+                tab_title.setTextColor(Color.parseColor("#CCCCCC"));
                 tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabTextSize);
 //                TextPaint tp = tab_title.getPaint();
 //                tp.setFakeBoldText(false);
@@ -549,8 +551,9 @@ public class PSFirst extends HorizontalScrollView {
             if (tab_title != null) {
                 tab_title.setSelected(true);
                // LogUtils.i("--select-选中---");
-                tab_title.setTextColor(Color.parseColor("#29b4ed"));
-                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabTextSize);
+                tab_title.setTextColor(Color.parseColor("#ffffff"));
+//                tab_title.setTextColor(Color.parseColor("#29b4ed"));
+                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabTextSizeSelect);
 //                TextPaint tp = tab_title.getPaint();
 //                tp.setFakeBoldText(true);
             }

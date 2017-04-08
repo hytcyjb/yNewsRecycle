@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,14 +15,11 @@ import android.widget.Toast;
 import net.youmi.android.normal.banner.BannerManager;
 import net.youmi.android.normal.banner.BannerViewListener;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import yjbo.yy.ynewsrecycle.R;
+import yjbo.yy.ynewsrecycle.mainutil.CommonUtil;
 import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
 
 /**
@@ -37,6 +33,8 @@ public class MyFragment extends BackHandledFragment {
 
     @Bind(R.id.hint_tv)
     TextView hintTv;
+    @Bind(R.id.github_tv)
+    TextView githubTv;
     private View view = null;
     private Context mContext = null;
 
@@ -140,5 +138,16 @@ public class MyFragment extends BackHandledFragment {
     }
 
     public void showRedPoint(int visible) {
+    }
+
+    @OnClick({R.id.hint_tv, R.id.github_tv})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.hint_tv:
+                break;
+            case R.id.github_tv:
+                CommonUtil.skipWeb(getActivity(), githubTv.getText()+"");
+                break;
+        }
     }
 }

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <!--<android.support.v7.widget.RecyclerView-->
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/swipe_target_onekind"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
