@@ -174,6 +174,8 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
     public void addOnGlobalLayoutListener(final Activity mactivity, int viewId, int viewId2, final int totalCount, final String content2, final int pos) {
         final TextView view = (TextView) itemView.findViewById(viewId);
         final TextView view2 = (TextView) itemView.findViewById(viewId2);
+        //相对而言先设置最大行数，那样会好点，但是都没有彻底解决问题；
+        view2.setMaxLines(2);
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
@@ -191,7 +193,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
                     } else {//此时是没读取到主标题行数；那就设置副标题2行
                         view2.setMaxLines(2);
                     }
-                    view2.setText(content2+"123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz");
+//                    view2.setText(content2+"123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz");
             }
         });
     }

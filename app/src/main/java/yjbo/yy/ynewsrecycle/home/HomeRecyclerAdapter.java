@@ -40,19 +40,21 @@ public class HomeRecyclerAdapter extends RecyclerViewAdapter<NewApiClass> {
     protected void bindData(final RecyclerViewHolder holder, final NewApiClass item, final int position) {
 
         holder.setText(R.id.content_three, item.getTitle())
-//                .setText(R.id.paper_TX, item.getChannelname()+"123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz")
+                .setText(R.id.paper_TX, item.getChannelname()+"123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz")
                 .setOnClickListener(R.id.rl_home_pic, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         CommonUtil.skipWeb(mActivity,item.getDocurl());
                     }
                 });
+
+        holder.addOnGlobalLayoutListener(mActivity,R.id.content_three,R.id.paper_TX,4,"",position);
+
         //加载网络图片
         holder.setImagePath(R.id.img_three_mini, new RecyclerViewHolder.ImageLoder(item.getImgurl()) {
             @Override
             public void loadImage(ImageView imageView, String path) {
 
-                holder.addOnGlobalLayoutListener(mActivity,R.id.content_three,R.id.paper_TX,4,"",position);
 
                 Glide.with(mContext)
                         .load(path)
