@@ -1,13 +1,16 @@
 package yjbo.yy.ynewsrecycle.main;
 
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import yjbo.yy.ynewsrecycle.R;
 import yjbo.yy.ynewsrecycle.mainutil.CommonUtil;
+import yjbo.yy.ynewsrecycle.mainutil.LogUtils;
 import yjbo.yy.ynewsrecycle.mainutil.WeakHandler;
 
 /**
@@ -64,6 +68,18 @@ public class MyFragment extends BackHandledFragment {
 
     private void initData() {
         //        initgg();
+        githubTv.setText("-------------12345667895453783873785----------------");
+        githubTv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onGlobalLayout() {
+                int lineCount = githubTv.getLineCount();
+                LogUtils.d("==00=="+"--0--"+lineCount);
+                githubTv.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                Toast.makeText(mContext,"=-=="+lineCount,Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 

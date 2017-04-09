@@ -1,11 +1,18 @@
 package yjbo.yy.ynewsrecycle.mainutil.baseAdapter;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import yjbo.yy.ynewsrecycle.mainutil.LogUtils;
 
 /**
  * 基本的ViewHolder
@@ -157,5 +164,35 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         View view = getView(viewId);
         view.setOnLongClickListener(listener);
         return this;
+    }
+    /**
+     * 字数设置行数
+     * 必须要用TextView，否则没有这个属性
+     *
+     * @author yjbo  @time 2017/4/7 13:22
+     */
+    public void addOnGlobalLayoutListener(final Activity mactivity, int viewId, int viewId2, final int totalCount, final String content2, final int pos) {
+        final TextView view = (TextView) itemView.findViewById(viewId);
+        final TextView view2 = (TextView) itemView.findViewById(viewId2);
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onGlobalLayout() {
+                int lineCount = view.getLineCount();
+                LogUtils.d("==addOnGlobalLayoutListener=="+pos+"----"+lineCount);
+//                Toast.makeText(mactivity,"==11=="+pos+"----"+lineCount,Toast.LENGTH_SHORT).show();
+                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    if (lineCount > 0) {//此时读取到了行数了
+                        if (lineCount == 1) {//主标题一行则副标题3行,保证一共4行`
+                            view2.setMaxLines(3);
+                        } else if (lineCount == 2) {//主标题2行则副标题2行,保证一共4行
+                            view2.setMaxLines(2);
+                        }
+                    } else {//此时是没读取到主标题行数；那就设置副标题2行
+                        view2.setMaxLines(2);
+                    }
+                    view2.setText(content2+"123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz");
+            }
+        });
     }
 }

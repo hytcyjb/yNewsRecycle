@@ -37,10 +37,10 @@ public class HomeRecyclerAdapter extends RecyclerViewAdapter<NewApiClass> {
 
     }
     @Override
-    protected void bindData(RecyclerViewHolder holder, final NewApiClass item, final int position) {
+    protected void bindData(final RecyclerViewHolder holder, final NewApiClass item, final int position) {
 
         holder.setText(R.id.content_three, item.getTitle())
-                .setText(R.id.paper_TX, item.getChannelname())
+//                .setText(R.id.paper_TX, item.getChannelname()+"123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz···123456789012345567890123456789abcdefghigklmnopqrstuvwxyz")
                 .setOnClickListener(R.id.rl_home_pic, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -51,6 +51,9 @@ public class HomeRecyclerAdapter extends RecyclerViewAdapter<NewApiClass> {
         holder.setImagePath(R.id.img_three_mini, new RecyclerViewHolder.ImageLoder(item.getImgurl()) {
             @Override
             public void loadImage(ImageView imageView, String path) {
+
+                holder.addOnGlobalLayoutListener(mActivity,R.id.content_three,R.id.paper_TX,4,"",position);
+
                 Glide.with(mContext)
                         .load(path)
                         .placeholder(R.mipmap.ic_launcher_round) // 同样也可以是drawble
