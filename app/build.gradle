@@ -56,4 +56,6 @@ dependencies {
     compile 'com.jcodecraeer:xrecyclerview:1.3.2'
     /*引入浏览器框架*/
     /*compile 'com.yh5.yang:yjboWebview:1.0.1'*/
+    //2016年8月31日11:15:17 添加了刷新库：
+    compile 'com.github.Aspsine:SwipeToLoadLayout:v1.0.2'
 }
