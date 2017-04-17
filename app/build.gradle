@@ -56,4 +56,5 @@ dependencies {
     compile 'com.jcodecraeer:xrecyclerview:1.3.2'
     /*引入浏览器框架*/
     /*compile 'com.yh5.yang:yjboWebview:1.0.1'*/
+    /*compile 'com.yh5.yang:yjboWebview:1.0.1'*/
 }
