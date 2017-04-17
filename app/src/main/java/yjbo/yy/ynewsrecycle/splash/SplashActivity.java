@@ -11,6 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.tencent.stat.StatService;
+
 import net.youmi.android.AdManager;
 import net.youmi.android.normal.common.ErrorCode;
 import net.youmi.android.normal.spot.SplashViewSettings;
@@ -175,6 +177,19 @@ public class SplashActivity extends AppCompatActivity {
 
     private void logInfo(String str) {
         Log.d("yjbo", str);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 页面开始
+        StatService.onResume(this);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 页面结束
+        StatService.onPause(this);
     }
 
     @Override
