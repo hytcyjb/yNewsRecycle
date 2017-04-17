@@ -61,7 +61,7 @@ public class debugWebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web);
         ButterKnife.bind(this);
         getSupportActionBar().hide();
-
+//        System.out.println(1/0);
         initView();
     }
 

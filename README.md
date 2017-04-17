@@ -8,6 +8,7 @@
 4.封装轮播图；使用原有的；<br>
 5.**引入retrofit + okhttp （在3.0中将使用MVP模式;以及databinding数据绑定）<br>
 6.**将引入html浏览器框架；<br>
+7.**引入腾讯移动分析： 参考：http://mta.qq.com/（已完成：用户数目统计；）
 <br>
 <h2>1.0版本：2017年4月3日 （已完成） 下载地址：https://github.com/hytcyjb/yNewsRecycle/tree/v1.0</h2><br />
     1.完成新闻的多项列表显示，滑动，动态添加的功能；<br>

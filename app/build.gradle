@@ -24,7 +24,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     compile files('libs/YoumiSdk_v7.0.1_2017-01-06.jar')
     /*有米广告sdk需要*/
     compile 'com.android.support:appcompat-v7:25.3.1'
@@ -44,9 +43,10 @@ dependencies {
     /*log打印，引用：https://github.com/orhanobut/logger*/
     compile 'com.orhanobut:logger:1.15'
     /*数据请求retrofit+okhttp*/
-    compile 'com.google.code.gson:gson:2.5' // gson
-    compile "com.squareup.retrofit2:retrofit:2.0.2"
-    compile "com.squareup.retrofit2:converter-gson:2.0.2"
+    compile 'com.google.code.gson:gson:2.5'
+    // gson
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     compile 'com.squareup.okhttp:okhttp:2.6.0'
     compile 'io.reactivex:rxjava:1.1.0'
@@ -58,4 +58,5 @@ dependencies {
     /*compile 'com.yh5.yang:yjboWebview:1.0.1'*/
     //2016年8月31日11:15:17 添加了刷新库：
     compile 'com.github.Aspsine:SwipeToLoadLayout:v1.0.2'
+    compile files('libs/mid-core-sdk-3.7.1.jar')
 }

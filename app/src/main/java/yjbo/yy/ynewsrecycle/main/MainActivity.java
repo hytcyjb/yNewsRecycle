@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tencent.stat.StatService;
+
 import net.youmi.android.normal.banner.BannerManager;
 import net.youmi.android.normal.spot.SpotManager;
 
@@ -129,9 +131,10 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         //或者异步加载2016年12月25日17:24:40
         checkForUpdate();
 
-        MyAlertDialogFragment myAlertDialogFragment = MyAlertDialogFragment.newInstance(R.string.app_name);
-        Dialog dialog = myAlertDialogFragment.onCreateDialog(savedInstanceState);
-        dialog.show();
+
+//        MyAlertDialogFragment myAlertDialogFragment = MyAlertDialogFragment.newInstance(R.string.app_name);
+//        Dialog dialog = myAlertDialogFragment.onCreateDialog(savedInstanceState);
+//        dialog.show();
     }
 
     private void logDebug(String str) {
@@ -315,6 +318,14 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
     @Override
     protected void onResume() {
         super.onResume();
+        // 页面开始
+        StatService.onResume(this);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 页面结束
+        StatService.onPause(this);
     }
 
     @Override
@@ -441,6 +452,8 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
 
     }
 
+
+
     @Override
     public void onBackPressed() {
         if (mBackHandedFragment == null || !mBackHandedFragment.onBackPressed()) {
@@ -455,6 +468,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
             }
         }
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
