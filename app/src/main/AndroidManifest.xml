@@ -11,6 +11,13 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--腾讯云分析-->
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- LBS定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <!-- 如果使用积分墙广告,还需要配置下面权限 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -69,6 +76,23 @@
                 android:resource="@xml/file_provider" />
         </provider>
         <!-- 有米配置 -->
+
+        <!-- 腾讯云分析配置 -->
+        <!-- 请将value改为MTA分配的appkey < -->
+        <meta-data
+            android:name="TA_APPKEY"
+            android:value="AL575X6QFZCN" />
+        <!-- 请将value改为APP的发布渠道（市场） < -->
+        <meta-data
+            android:name="InstallChannel"
+            android:value="应用宝" />
+
+        <provider
+            android:name="com.tencent.mid.api.MidProvider"
+            android:authorities="yjbo.yy.ynewsrecycle"
+            android:exported="true" >
+        </provider>
+        <!-- 腾讯云分析配置 -->
     </application>
 
 </manifest>

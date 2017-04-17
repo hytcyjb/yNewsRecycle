@@ -15,6 +15,8 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        //2016年8月31日11:15:17 添加了刷新库：
+        maven { url "https://jitpack.io" }
     }
 }
 

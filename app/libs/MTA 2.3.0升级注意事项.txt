@@ -1,0 +1,78 @@
+更新注意事项：
+1. jar包更新
+
+使用mta-android-stat-sdk-2.3.0_20161221-jdk1.6.jar替换原来的mta.jar包
+使用mid-sdk-3.71.jar替换原来的mid.jar包
+
+2. 增加配置
+
+在 AndroidManifest.xml （application 标签下）增加provider 配置
+<provider
+      android:name="com.tencent.mid.api.MidProvider"
+      android:authorities="你的包名.TENCENT.MID.V3"
+      android:exported="true" >
+</provider>
+
+3.初始化接口
+
+// 请在初始化时调用，参数为Application或Activity或Service
+StatService.setContext(this.getApplication());
+// 自动监控Activity生命周期，可以代替之前手动调用的onResume和onPause，防止漏打点的情况
+StatService.registerActivityLifecycleCallbacks(getApplication());
+
+
+
+SDK代码混淆保留项：
+-keep class com.tencent.stat.**  {* ;}
+-keep class com.tencent.mid.**  {* ;}
+
+
+
+日期：2016.12.21
+版本：V2.3.0
+1.优化上报字段：进程名、是否在前台
+2.允许自动监听Activity
+
+
+日期：2016.01.11
+版本：V2.1.0
+1.Activity页面自动统计
+2.前后台状态的监听
+3.修复db在某种偶发条件下的查询异常
+
+
+
+
+
+
+日期：2015.08.04
+版本：V2.0.4
+1.兼容LBS SDK
+
+日期：2014.09.04
+版本：V2.0.0
+说明：
+1.全面优化CPU、内存，大幅度提升性能
+2.全面优化网络连接、数据上报稳定性等
+3.区分重要和非重要数据，做到重要数据不丢失
+4.指定日志特殊上报：appkey、实时、重要数据、渠道等
+5.优化接口的易用性
+升级提示（强烈建议以前的版本升级）：
+版本升级兼容所有旧版本接口，请根据以下步骤更新即可
+1.删除旧的mta-sdk-x.x.x.jar，并复制mta-sdk-2.0.0.jar到工程的libs目录
+2.复制mid-sdk-2.10.jar到工程的libs目录
+3..so是用于捕获捕获native crash（C/C++异常），只有需要这个功能才要复制armabi、armeabi-v7a等目录到libs目录，并在初始化时调用StatConfig.initNativeCrashReport()；
+注意：
+mta的mid-sdk-2.10.jar与信鸽的mid-2.x版本只能保留一个，但mid-1.x版本共存
+
+
+日期：2014.05.29
+版本：V1.8.0
+说明：
+1.优化上报
+2.更新mid库
+升级提示（强烈建议以前的版本升级）：
+版本升级兼容所有旧版本接口，请根据以下步骤更新即可
+1.删除旧的mta-sdk-x.x.x.jar，并复制mta-sdk-1.8.0.jar到工程的libs目录
+2.复制mid-sdk-2.10.jar到工程的libs目录
+3..so是用于捕获捕获native crash（C/C++异常），只有需要这个功能才要复制armabi、armeabi-v7a等目录到libs目录，并在初始化时调用StatConfig.initNativeCrashReport()；
