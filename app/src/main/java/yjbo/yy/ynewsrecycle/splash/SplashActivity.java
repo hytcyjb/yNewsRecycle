@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.tencent.stat.MtaSDkException;
 import com.tencent.stat.StatService;
 
 import net.youmi.android.AdManager;
@@ -21,7 +22,10 @@ import net.youmi.android.normal.spot.SpotManager;
 
 import yjbo.yy.ynewsrecycle.R;
 import yjbo.yy.ynewsrecycle.main.MainActivity;
+import yjbo.yy.ynewsrecycle.mainutil.LogUtils;
 import yjbo.yy.ynewsrecycle.mainutil.PermissionHelper;
+
+import static com.squareup.okhttp.internal.Internal.logger;
 
 /**
  * 启动页面--同时也是为了尝试接入有米sdk；
@@ -74,6 +78,22 @@ public class SplashActivity extends AppCompatActivity {
                 Log.i(TAG, "Some of requested permissions hasn't been granted, so apply permissions first.");
                 mPermissionHelper.applyPermissions();
             }
+        }
+        // androidManifest.xml指定本activity最先启动
+        // 因此，MTA的初始化工作需要在本onCreate中进行
+        // 在startStatService之前调用StatConfig配置类接口，使得MTA配置及时生效
+//        initMTAConfig(true);
+        String appkey = "AL575X6QFZCN";
+        // 初始化并启动MTA
+        // 第三方SDK必须按以下代码初始化MTA，其中appkey为规定的格式或MTA分配的代码。
+        // 其它普通的app可自行选择是否调用
+        try {         // 第三个参数必须为：com.tencent.stat.common.StatConstants.VERSION
+             StatService.startStatService(this, appkey, com.tencent.stat.common.StatConstants.VERSION);
+            LogUtils.e("MTA start success.yjbo");
+        } catch (MtaSDkException e) {
+            // MTA初始化失败
+            LogUtils.e("MTA start failed.");
+            LogUtils.e("e");
         }
     }
 

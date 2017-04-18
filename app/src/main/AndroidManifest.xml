@@ -89,7 +89,7 @@
 
         <provider
             android:name="com.tencent.mid.api.MidProvider"
-            android:authorities="yjbo.yy.ynewsrecycle"
+            android:authorities="yjbo.yy.ynewsrecycle.TENCENT.MID.V3"
             android:exported="true" >
         </provider>
         <!-- 腾讯云分析配置 -->

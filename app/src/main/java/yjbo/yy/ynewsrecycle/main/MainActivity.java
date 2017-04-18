@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                     transaction.add(R.id.module, homePageFragment);
                 }
                 break;
-            //1页面
+            //2页面
             case 1:
                 if (newModelFragment != null && newModelFragment.isAdded()) {
                     transaction.show(newModelFragment);
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                     transaction.add(R.id.module, newModelFragment);
                 }
                 break;
-            //2页面
+            //1页面
             case 2:
                 if (navigationFragment != null && navigationFragment.isAdded()) {
                     transaction.show(navigationFragment);
