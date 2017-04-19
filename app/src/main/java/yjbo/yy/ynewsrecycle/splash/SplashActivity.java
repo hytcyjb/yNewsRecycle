@@ -2,16 +2,17 @@ package yjbo.yy.ynewsrecycle.splash;
 
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import com.tencent.stat.MtaSDkException;
+import com.tencent.stat.StatConfig;
+import com.tencent.stat.StatReportStrategy;
 import com.tencent.stat.StatService;
 
 import net.youmi.android.AdManager;
@@ -24,8 +25,6 @@ import yjbo.yy.ynewsrecycle.R;
 import yjbo.yy.ynewsrecycle.main.MainActivity;
 import yjbo.yy.ynewsrecycle.mainutil.LogUtils;
 import yjbo.yy.ynewsrecycle.mainutil.PermissionHelper;
-
-import static com.squareup.okhttp.internal.Internal.logger;
 
 /**
  * 启动页面--同时也是为了尝试接入有米sdk；
@@ -87,6 +86,11 @@ public class SplashActivity extends AppCompatActivity {
         // 初始化并启动MTA
         // 第三方SDK必须按以下代码初始化MTA，其中appkey为规定的格式或MTA分配的代码。
         // 其它普通的app可自行选择是否调用
+        StatConfig.setAutoExceptionCaught(false); // 禁止捕获app未处理的异常
+        StatConfig.setEnableSmartReporting(true); // 禁止WIFI网络实时上报
+        StatConfig.setSendPeriodMinutes(24 * 60); // PERIOD间隔周期，24小时
+        StatConfig.setStatSendStrategy(StatReportStrategy.PERIOD); //
+
         try {         // 第三个参数必须为：com.tencent.stat.common.StatConstants.VERSION
              StatService.startStatService(this, appkey, com.tencent.stat.common.StatConstants.VERSION);
             LogUtils.e("MTA start success.yjbo");
@@ -95,6 +99,7 @@ public class SplashActivity extends AppCompatActivity {
             LogUtils.e("MTA start failed.");
             LogUtils.e("e");
         }
+        StatService.trackCustomEvent(this, "launch_activity", "SplashActivity");
     }
 
     @Override

@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(connectionReceiver, intentFilter);
 
+        StatService.trackCustomEvent(this, "main_activity", "MainActivity");
 
         reLogin();
 

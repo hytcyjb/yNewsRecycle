@@ -59,4 +59,5 @@ dependencies {
     //2016年8月31日11:15:17 添加了刷新库：
     compile 'com.github.Aspsine:SwipeToLoadLayout:v1.0.2'
     compile files('libs/mid-core-sdk-3.7.1.jar')
+    compile files('libs/mta-android-stat-sdk-2.3.0_20161221-jdk1.6.jar')
 }
